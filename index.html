@@ -98,7 +98,7 @@ dialog img{width:100%;max-height:62vh;object-fit:contain;background:var(--ink)}.
 .checker{position:absolute;inset:0;z-index:-3;background-image:conic-gradient(#6a0b1a 25%,#8a1226 0 50%,#6a0b1a 0 75%,#8a1226 0);background-size:140px 140px;animation:chk 12s linear infinite}
 .sheen{position:absolute;inset:0;z-index:-2;background:linear-gradient(100deg,transparent 20%,rgba(214,45,66,.38) 50%,transparent 80%);background-size:220% 100%;animation:sheen 9s ease-in-out infinite alternate}
 @keyframes chk{to{background-position:140px 0}}@keyframes sheen{to{background-position:100% 0}}
-.face{position:absolute;left:50%;top:0;height:100%;width:min(78vw,470px);transform:translateX(-50%);object-fit:cover;object-position:50% 12%;z-index:-1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+
 .giant{margin:0;display:flex;font-weight:600;font-size:clamp(3.4rem,19vw,15rem);line-height:.9;letter-spacing:-.045em;color:var(--pearl);text-shadow:0 4px 30px rgba(42,5,9,.25)}
 .giant span{display:inline-block;opacity:0;transform:translateY(60px);animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
 .giant span:nth-child(2){animation-delay:.08s}.giant span:nth-child(3){animation-delay:.16s}.giant span:nth-child(4){animation-delay:.24s}.giant span:nth-child(5){animation-delay:.32s}.giant span:nth-child(6){animation-delay:.4s}
@@ -110,12 +110,27 @@ dialog img{width:100%;max-height:62vh;object-fit:contain;background:var(--ink)}.
 @media(max-width:520px){.note.r{display:none}.pillcta{left:50%;transform:translateX(-50%)}.pillcta:hover{transform:translateX(-50%) translateY(-3px)}}
 footer .credit{margin-top:16px;letter-spacing:.06em;text-transform:none;font-size:.78rem}footer .credit a{text-decoration:underline}
 @media(prefers-reduced-motion:reduce){.checker,.sheen,.giant span{animation:none!important}.giant span{opacity:1;transform:none}}
+
+.arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(74vw,400px);height:93%;border-radius:999px 999px 0 0;overflow:hidden;z-index:0;background:#3a0710;
+ box-shadow:0 0 0 9px rgba(255,244,214,.12),0 0 0 10px rgba(255,244,214,.55),0 30px 80px rgba(0,0,0,.5)}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.14);transition:opacity 1.3s ease,transform 7s ease-out}
+.slide.on{opacity:1;transform:scale(1)}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(58,7,16,.55));pointer-events:none}
+.float{position:absolute;z-index:1;width:clamp(120px,17vw,210px);aspect-ratio:3/4;border:5px solid var(--pearl);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.4);animation:bob 7s ease-in-out infinite;transition:translate .25s ease-out}
+.float img{width:100%;height:100%;object-fit:cover}
+.float.a{left:7%;top:19%;--r:-7deg}.float.b{right:7%;top:24%;--r:6deg;animation-delay:-3.5s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(var(--r))}}
+.stage .giant{position:absolute;left:0;right:0;bottom:25%;justify-content:center;z-index:2}
+.stage .note{z-index:3}
+@media(max-width:640px){.float{display:none}.stage .giant{bottom:22%}}
+@media(prefers-reduced-motion:reduce){.float{animation:none;transform:rotate(var(--r))}.slide{transition:opacity .01s;transform:none}}
 </style></head><body>
 <header class="vh"><div class="win"><nav class="vnav" aria-label="Main"><a class="logo" href="#" aria-label="The Preferred Glam">PG</a>
 <ul><li><a href="#portfolio">Portfolio</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="https://wa.me/2348142095677?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20makeup.">Contact</a></li></ul>
 <div class="soc"><a href="https://www.instagram.com/thepreferredglam/" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></svg></a><a href="https://wa.me/2348142095677?text=Hello" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/></svg></a></div></nav>
 <div class="stage"><div class="checker" aria-hidden="true"></div><div class="sheen" aria-hidden="true"></div>
-<img class="face" src="https://scontent-icn2-1.cdninstagram.com/v/t51.82787-15/776498127_18065835083726344_6477129902035740378_n.jpg?stp=dst-jpg_e15_tt6&amp;_nc_cat=105&amp;ig_cache_key=Mzk2NDE2MTAzMDUxMzU0ODYxODE4MDY1ODM1MDgwNzI2MzQ0.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyODQuc2RyLnZpZGVvX3VzZXJfc2VsZWN0ZWRfdGh1bWJuYWlsLkMzIn0%3D&amp;_nc_ohc=foSfloqNRNIQ7kNvwFeDomP&amp;_nc_oc=AdqQBrpuUErZ2fdLxsrALUwp7JrqGAYkey0lzMNx5iqmxwYMngPbZj0biwzDD8BcIrY&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_zt=23&amp;_nc_ht=scontent-icn2-1.cdninstagram.com&amp;_nc_gid=I-YgtepUu65FXvy3laA9ug&amp;_nc_ss=7a20f&amp;oh=00_AQRleATV1WAsgg3W0RACZTMRs5vdMpqOMfEqbHxUVkVDhQ&amp;oe=6AF56373" alt="Bridal makeup by The Preferred Glam" referrerpolicy="no-referrer">
+<div class="arch" role="group" aria-label="Featured bridal looks"><img class="slide on" src="images/hero-copper-gele.jpg" alt="Bridal look with a copper and teal gele, bronzed eyes and glossy nude lips" style="object-position:50% 28%"><img class="slide" src="images/hero-pink-veil.jpg" alt="Bridal look with soft pink eyeshadow, glossy lips and a tulle veil" style="object-position:50% 38%"><img class="slide" src="images/hero-white-veil.jpg" alt="White wedding look with soft glam makeup under a beaded veil" style="object-position:50% 30%"></div>
+<div class="float a" aria-hidden="true"><img src="images/hero-grey-gele.jpg" alt="" style="object-position:50% 30%"></div><div class="float b" aria-hidden="true"><img src="images/hero-white-bride.jpg" alt="" style="object-position:50% 25%"></div>
 <h1 class="giant" aria-label="Bridal makeup artist in Lagos"><span>B</span><span>R</span><span>I</span><span>D</span><span>A</span><span>L</span></h1>
 <p class="note l">Bridal makeup that brings out your beauty.</p>
 <p class="note r">Makeup in which you recognise yourself, only more confident, radiant and unforgettable.</p>
@@ -146,4 +161,10 @@ document.getElementById('bTitle').textContent=b.dataset.title;document.getElemen
 
 document.getElementById('bWa').href='https://wa.me/2348142095677?text='+encodeURIComponent('Hello, I would like this look: '+b.dataset.title+' ('+b.dataset.ig+')');box.showModal()});
 document.getElementById('bClose').addEventListener('click',function(){box.close()});box.addEventListener('click',function(e){if(e.target===box)box.close()});render()})();
+</script><script>
+(function(){var st=document.querySelector('.stage'),sl=[].slice.call(document.querySelectorAll('.slide')),i=0,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!rm&&sl.length>1)setInterval(function(){if(document.hidden)return;sl[i].classList.remove('on');i=(i+1)%sl.length;sl[i].classList.add('on')},4800);
+var fl=[].slice.call(document.querySelectorAll('.float'));
+if(!rm&&matchMedia('(hover:hover)').matches)st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;fl.forEach(function(f,k){var d=k?-1:1;f.style.translate=(x*28*d)+'px '+(y*18*d)+'px'})});
+})();
 </script></body></html>
